@@ -408,6 +408,10 @@ public class MainInterface extends javax.swing.JFrame {
             DefaultTableModel model = (DefaultTableModel)FrontTable.getModel();
             model.addRow(new Object[]{Name, ID, Position, Contact});  
             clearSelections();
+            HoursWorkedTextField.setEditable(false);
+            RatePerHourTextField.setEditable(false);
+            HoursWorkedTextField.setBackground(Color.lightGray);
+            RatePerHourTextField.setBackground(Color.lightGray);
         } 
         catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Please Fill all Fields with proper values");
