@@ -18,6 +18,11 @@ public class ViewPayroll extends javax.swing.JFrame {
     
     public ViewPayroll() {
         initComponents();
+        double totalAmount = 0;
+        for (int i = 0; i < Employee.employee.size(); i++) {
+            totalAmount += Employee.employee.get(i).computeTotalAmount();
+        }
+        TotalPayrollAmountLabel.setText(String.valueOf("Php"+totalAmount));
         
         this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
         
@@ -45,6 +50,7 @@ public class ViewPayroll extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         BackButton = new javax.swing.JButton();
         PrintButton = new javax.swing.JButton();
+        TotalPayrollAmountLabel = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -113,6 +119,11 @@ public class ViewPayroll extends javax.swing.JFrame {
             }
         });
 
+        TotalPayrollAmountLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        TotalPayrollAmountLabel.setForeground(new java.awt.Color(51, 51, 51));
+        TotalPayrollAmountLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        TotalPayrollAmountLabel.setText("Total");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -120,6 +131,8 @@ public class ViewPayroll extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(TotalPayrollAmountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(PrintButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -132,8 +145,9 @@ public class ViewPayroll extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(BackButton)
-                    .addComponent(PrintButton))
-                .addContainerGap(11, Short.MAX_VALUE))
+                    .addComponent(PrintButton)
+                    .addComponent(TotalPayrollAmountLabel))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 204));
@@ -191,7 +205,7 @@ public class ViewPayroll extends javax.swing.JFrame {
             .addGroup(PrintPanelLayout.createSequentialGroup()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -267,6 +281,7 @@ public class ViewPayroll extends javax.swing.JFrame {
     private javax.swing.JButton PrintButton;
     private javax.swing.JPanel PrintPanel;
     private javax.swing.JTable Table1;
+    private javax.swing.JLabel TotalPayrollAmountLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
